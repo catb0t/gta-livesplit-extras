@@ -5,10 +5,10 @@
 // @grant    none
 // ==/UserScript==
 
-console.log("Font+Key init") ;
+console.log("GTA Font+Key init") ;
 document.getElementsByTagName("body")[0].style["background-color"] = "#00ff00";
 var checkExist = setInterval(function() {
-	let T = document.getElementsByClassName("timer-time"); 	 
+	let T = document.getElementsByClassName("timer-time");
   if (T.length) {
 		console.log(T);
 
@@ -16,36 +16,39 @@ var checkExist = setInterval(function() {
     gradient.innerHTML = `
     <stop offset="0%" style="stop-color: rgb(255, 255, 255);"></stop>
     <stop offset="100%" style="stop-color: #777;"></stop>`; // #898989, #808080
-    gradient.parentNode.insertAdjacentHTML('beforeend', 
+    gradient.parentNode.insertAdjacentHTML('beforeend',
     `<filter id="Timer0_filter_shadow_offset" x="0" y="0" width="200%" height="200%">
       <feOffset result="offOut" in="SourceAlpha" dx="2" dy="2" />
       <feBlend in="SourceGraphic" in2="offOut" mode="normal" />
     </filter>`);
 
-    for (var i = 0; i < T.length; i++) { 
+    for (var i = 0; i < T.length; i++) {
       console.log( T.item(i).style['font-family'] = "pricedown, sans-serif" );
       console.log( T.item(i).style['stroke'] = "#000" );
       console.log( T.item(i).style['stroke-width'] = "1" );
       console.log( T.item(i).setAttribute("filter", "url(#Timer0_filter_shadow_offset)") );
     }
-    
-		clearInterval(checkExist);
+
+    let xp = function (p) { document.evaluate(p, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue; }
+    xp("/html/body/div/div/div[1]/div[1]/div/button[9]").click();
+    xp("/html/body/div/div/div[1]/div[1]/div/button[3]").click();
+
+    clearInterval(checkExist);
   }
 }, 100);
 
 /*
 body background: hsl(120.5, 100%, 50%)
   /html/body
-font-family: timer->pricedown 
+font-family: timer->pricedown
   /html/body/div/div/div[1]/div[3]/div/div[1]/div/svg/text[1]
   /html/body/div/div/div[1]/div[3]/div/div[1]/div/svg/text[2]
 
-import layout button: 
+import layout button:
   /html/body/div/div/div[1]/div[1]/div/button[9]
   this.props.callbacks.importLayout()
-  
-import splits button: 
+
+import splits button:
   /html/body/div/div/div[1]/div[1]/div/button[3]
   this.props.callbacks.importSplits()
 */
-
