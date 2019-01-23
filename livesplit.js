@@ -10,6 +10,7 @@ document.getElementsByTagName("body")[0].style["background-color"] = "#00ff00";
 var checkExist = setInterval(function() {
 	let T = document.getElementsByClassName("timer-time");
   if (T.length) {
+    clearInterval(checkExist);
 		console.log(T);
 
     let gradient = document.getElementById("Timer0-text-gradient")
@@ -29,11 +30,26 @@ var checkExist = setInterval(function() {
       console.log( T.item(i).setAttribute("filter", "url(#Timer0_filter_shadow_offset)") );
     }
 
-    let xp = function (p) { document.evaluate(p, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue; }
-    xp("/html/body/div/div/div[1]/div[1]/div/button[9]").click();
-    xp("/html/body/div/div/div[1]/div[1]/div/button[3]").click();
-
-    clearInterval(checkExist);
+    let xp = function (p) { return document.evaluate(p, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue; }
+    try {
+      let main_div = xp("/html/body/div/div/div[1]");
+      console.log(main_div)
+      main_div.dispatchEvent(
+        new MouseEvent("contextmenu", {
+          bubbles: true,
+          cancelable: false,
+          view: window,
+          button: 2,
+          buttons: 0,
+          clientX: main_div.getBoundingClientRect().x,
+          clientY: main_div.getBoundingClientRect().y
+        })
+      );
+      xp("/html/body/div/div/div[1]/div[1]/div/button[9]").click();
+      xp("/html/body/div/div/div[1]/div[1]/div/button[3]").click();
+    } catch (e) {
+      console.log("some problem: " + e)
+    }
   }
 }, 100);
 
