@@ -68,9 +68,14 @@ var checkExist = setInterval(function() {
     xp("/html/body/div/div/div[1]/div[1]/div/button[9]").click();
     // import splits
     xp("/html/body/div/div/div[1]/div[1]/div/button[3]").click();
+    console.log("external saved data loaded");
 
     // close the sidebar
     xp("/html/body/div/div/div[1]/div[2]").click();
+
+    document.body.style.transform = "scale(3)";
+
+    console.log("done!")
   }
 }, 100);
 
