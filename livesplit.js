@@ -15,7 +15,7 @@ var checkExist = setInterval(function() {
     clearInterval(checkExist);
 		console.log(T);
 
-    //let head =
+    console.log("fetching pricedown...")
     document.getElementsByTagName("head")[0].insertAdjacentHTML(
       "afterbegin",
       `<style type="text/css">
@@ -23,7 +23,7 @@ var checkExist = setInterval(function() {
           font-family: pricedown;
           src: url("https://raw.githubusercontent.com/catb0t/gta-livesplit-extras/master/pricedown_bl.ttf") format("truetype");
         }
-      `
+      </style>`
     )
 
     let gradient = document.getElementById("Timer0-text-gradient")
