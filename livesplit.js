@@ -49,7 +49,9 @@ var checkExist = setInterval(function() {
     let xp = function (p) { return document.evaluate(p, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue; }
 
     let main_div = xp("/html/body/div/div/div[1]");
-    console.log(main_div)
+    //console.log(main_div)
+
+    // open the sidebar
     main_div.dispatchEvent(
       new MouseEvent("contextmenu", {
         bubbles: true,
@@ -61,8 +63,14 @@ var checkExist = setInterval(function() {
         clientY: main_div.getBoundingClientRect().y
       })
     );
+
+    // import layout
     xp("/html/body/div/div/div[1]/div[1]/div/button[9]").click();
+    // import splits
     xp("/html/body/div/div/div[1]/div[1]/div/button[3]").click();
+
+    // close the sidebar
+    xp("/html/body/div/div/div[1]/div[2]").click();
   }
 }, 100);
 
