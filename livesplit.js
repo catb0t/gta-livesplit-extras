@@ -15,7 +15,9 @@ var checkExist = setInterval(function() {
     clearInterval(checkExist);
 		console.log(T);
 
-    console.log("fetching pricedown...")
+    document.body.style["text-shadow"] = "0px 0px 0px rgba(0, 0, 0, 0)";
+
+    console.log("fetching pricedown...");
     document.getElementsByTagName("head")[0].insertAdjacentHTML(
       "afterbegin",
       `<style type="text/css">
@@ -24,9 +26,9 @@ var checkExist = setInterval(function() {
           src: url("https://raw.githubusercontent.com/catb0t/gta-livesplit-extras/master/pricedown_bl.ttf") format("truetype");
         }
       </style>`
-    )
+    );
 
-    let gradient = document.getElementById("Timer0-text-gradient")
+    let gradient = document.getElementById("Timer0-text-gradient");
     gradient.innerHTML =
       `<stop offset="0%" style="stop-color: rgb(255, 255, 255);"></stop>
       <stop offset="100%" style="stop-color: #777;"></stop>`; // #898989, #808080
@@ -43,6 +45,7 @@ var checkExist = setInterval(function() {
       console.log( T.item(i).style['font-family'] = "pricedown, sans-serif" );
       console.log( T.item(i).style['stroke'] = "#000" );
       console.log( T.item(i).style['stroke-width'] = "1" );
+      console.log( T.item(i).style["text-shadow"] = "0px 0px 0px rgba(0, 0, 0, 0)" );
       console.log( T.item(i).setAttribute("filter", "url(#Timer0_filter_shadow_offset)") );
     }
 
