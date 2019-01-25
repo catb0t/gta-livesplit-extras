@@ -33,7 +33,7 @@ var checkExist = setInterval(function() {
     let gradient = document.getElementById("Timer0-text-gradient");
     gradient.innerHTML =
       `<stop offset="0%" style="stop-color: rgb(255, 255, 255);"></stop>
-      <stop offset="100%" style="stop-color: #666;"></stop>`; // #898989, #808080
+      <stop offset="100%" style="stop-color: #505050;"></stop>`; // #898989, #808080
 
     gradient.parentNode.insertAdjacentHTML(
       "beforeend",
