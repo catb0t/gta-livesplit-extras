@@ -22,8 +22,10 @@ let xhr_sync = function (url, data) {
 }
 
 let inject_script = function (source_id) {
-  let parts = source_id.match(/([rl])(\d+)/g),
-      nr    = window.parseInt(parts[1]);
+  if (source_id === undefined || source_id === "") { return; }
+  let parts = source_id.match(/([rl])(\d+)/g);
+  if (parts === null) { return; }
+  let nr    = window.parseInt(parts[1]);
 
   var url = "";
   if ( "r" === parts[0] ) {
@@ -38,6 +40,7 @@ let inject_script = function (source_id) {
 }
 
 let set_timer_value = function (newtime /*string*/) {
+  if (newtime === undefined || newtime === "") { return; }
   let parts = newtime.split("."),
       timer = document.getElementsByClassName("timer-time");
 
