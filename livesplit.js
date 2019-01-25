@@ -15,6 +15,8 @@ var checkExist = setInterval(function() {
     clearInterval(checkExist);
 		console.log(T);
 
+    // only chrome renders the shadow that livesplit intends to draw
+    // but i developed this for firefox and i don't want that third shadow
     document.body.style["text-shadow"] = "0px 0px 0px rgba(0, 0, 0, 0)";
 
     console.log("fetching pricedown...");
@@ -45,7 +47,7 @@ var checkExist = setInterval(function() {
       console.log( T.item(i).style['font-family'] = "pricedown, sans-serif" );
       console.log( T.item(i).style['stroke'] = "#000" );
       console.log( T.item(i).style['stroke-width'] = "1" );
-      console.log( T.item(i).style["text-shadow"] = "0px 0px 0px rgba(0, 0, 0, 0)" );
+      console.log( T.item(i).style["text-shadow"] = "0px 0px 0px rgba(0, 0, 0, 0)" ); // clearing the shadow again to be sure
       console.log( T.item(i).setAttribute("filter", "url(#Timer0_filter_shadow_offset)") );
     }
 
@@ -75,9 +77,6 @@ var checkExist = setInterval(function() {
 
     // close the sidebar
     xp("/html/body/div/div/div[1]/div[2]").click();
-
-    // doesn't work in any browser
-    //document.body.style.transform = "scale(3, 3)";
 
     document.body.style.zoom = 5;
 
