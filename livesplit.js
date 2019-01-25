@@ -79,7 +79,7 @@ var checkExist = setInterval(function() {
     // doesn't work in any browser
     //document.body.style.transform = "scale(3, 3)";
 
-    document.body.style.zoom = 3;
+    document.body.style.zoom = 5;
 
     console.log("done!")
   }
