@@ -110,7 +110,7 @@ var checkExist = window.setInterval(function() {
     let button_btmleft_copy = button_btmleft.cloneNode(true);
     button_btmleft.parentNode.replaceChild(button_btmleft_copy, button_btmleft);
 
-    button_btmleft.addEventListener("click", function () { set_timer_value( document.getElementById("gtac_settimer").value ) } );
+    button_btmleft_copy.addEventListener("click", function () { set_timer_value( document.getElementById("gtac_settimer").value ) } );
 
     /* button not needed: wait N milliseconds to start the timer */
 
