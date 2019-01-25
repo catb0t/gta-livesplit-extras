@@ -17,7 +17,7 @@ var checkExist = setInterval(function() {
 
     // only chrome renders the shadow that livesplit intends to draw
     // but i developed this for firefox and i don't want that third shadow
-    // document.body.style["text-shadow"] = "0px 0px 0px rgba(0, 0, 0, 0)";
+    document.body.style["text-shadow"] = "0px 0px 0px rgba(0, 0, 0, 0)";
 
     console.log("fetching pricedown...");
     document.getElementsByTagName("head")[0].insertAdjacentHTML(
