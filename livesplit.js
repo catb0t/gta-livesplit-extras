@@ -42,7 +42,7 @@ let set_timer_value = function (newtime /*string*/) {
       timer = document.getElementsByClassName("timer-time");
 
   timer.item(0).innerHTML = parts[0];
-  timer.item(1).innerHTML = parts[1];
+  timer.item(1).innerHTML = "." + parts[1];
 }
 
 var checkExist = window.setInterval(function() {
@@ -95,7 +95,7 @@ var checkExist = window.setInterval(function() {
     // Live script reloader
     let button_topleft = xp("/html/body/div/div/div[1]/div[3]/div/div[2]/div[1]/button[1]");
     button_topleft.insertAdjacentHTML("beforeend", "(Re)load script [r0|l]:");
-    button_topleft.insertAdjacentHTML("afterend", `<input style="width: 20px; background-color: black;" class="gtac" id="gtac_scriptload" type="text"></input>`);
+    button_topleft.insertAdjacentHTML("afterend", `<input style="width: 40px; background-color: black;" class="gtac" id="gtac_scriptload" type="text"></input>`);
 
     let button_topleft_copy = button_topleft.cloneNode(true);
     button_topleft.parentNode.replaceChild(button_topleft_copy, button_topleft);
@@ -105,7 +105,7 @@ var checkExist = window.setInterval(function() {
     // Setting the value directly
     let button_btmleft = xp("/html/body/div/div/div[1]/div[3]/div/div[2]/div[2]/button[1]");
     button_btmleft.insertAdjacentHTML("beforeend", "Set timer value to:");
-    button_btmleft.insertAdjacentHTML("afterend", `<input style="width: 20px; background-color: black;" class="gtac" id="gtac_settimer" type="text"></input>`);
+    button_btmleft.insertAdjacentHTML("afterend", `<input style="width: 40px; background-color: black;" class="gtac" id="gtac_settimer" type="text"></input>`);
 
     let button_btmleft_copy = button_btmleft.cloneNode(true);
     button_btmleft.parentNode.replaceChild(button_btmleft_copy, button_btmleft);
