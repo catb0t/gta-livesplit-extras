@@ -104,7 +104,7 @@ var checkExist = window.setInterval(function() {
 
     // Setting the value directly
     let button_btmleft = xp("/html/body/div/div/div[1]/div[3]/div/div[2]/div[2]/button[1]");
-    button_btmleft.insertAdjacentHTML("Set timer value to:");
+    button_btmleft.insertAdjacentHTML("beforeend", "Set timer value to:");
     button_btmleft.insertAdjacentHTML("afterend", `<input style="width: 20px; background-color: black;" class="gtac" id="gtac_settimer" type="text"></input>`);
 
     let button_btmleft_copy = button_btmleft.cloneNode(true);
