@@ -73,7 +73,8 @@ var checkExist = setInterval(function() {
     // close the sidebar
     xp("/html/body/div/div/div[1]/div[2]").click();
 
-    document.body.style.transform = "scale(3, 3)";
+    // doesn't work in any browser
+    //document.body.style.transform = "scale(3, 3)";
 
     console.log("done!")
   }
