@@ -26,12 +26,13 @@ let inject_script = function (source_id) {
   let parts = source_id.match(/([rl])(\d+)/g);
   if (parts === null) { return; }
   let nr    = window.parseInt(parts[1]);
+  console.log("script id parts: " + parts);
 
   var url = "";
   if ( "r" === parts[0] ) {
     url = ["https://raw.githubusercontent.com/catb0t/gta-livesplit-extras/master/livesplit.js"][ nr ];
   } else /* if ( "l" === parts[0] ) */ {
-    url = window.location + "/livesplit.js";
+    url = window.location + "/custom_livesplit.js";
   }
 
   let inject_js = xhr_sync(url, false);
