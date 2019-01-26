@@ -121,7 +121,7 @@ var checkExist = window.setInterval(function() {
     //document.body.style.zoom = 5;
     console.log("GTA Font+Key: all done!");
 
-    window.setTimeout(function () { xp("/html/body/div/div/div[1]/div[3]/div/div[1]").click(); }, (8 * 60 * 1000) + (51 * 1000) );
+    //window.setTimeout(function () { xp("/html/body/div/div/div[1]/div[3]/div/div[1]").click(); }, (8 * 60 * 1000) + (51 * 1000) );
   }
 }, 100);
 
