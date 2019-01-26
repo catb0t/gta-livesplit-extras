@@ -11,12 +11,11 @@ document.getElementsByTagName("body")[0].style["background-color"] = "#00ff00";
 
 let xp = function (p) { return document.evaluate(p, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue; }
 
-let xhr_sync = function (url, data) {
+let xhr_sync = function (url) {
   var xhr = new XMLHttpRequest();
 
   xhr.open("GET", url, false);
-  xhr.setRequestHeader('Content-Type', 'application/json');
-  xhr.send(data || null);
+  xhr.send(null)
   // need an error condition here
   return xhr.responseText;
 }
@@ -35,7 +34,7 @@ let inject_script = function (source_id) {
     url = window.location + "/custom_livesplit.js";
   }
 
-  let inject_js = xhr_sync(url, false);
+  let inject_js = xhr_sync(url);
   console.log("loading cross-site script file: " + inject_js.slice(0, 40).replace("\n", "") + "...");
   eval(inject_js);
 }
