@@ -11,34 +11,6 @@ document.getElementsByTagName("body")[0].style["background-color"] = "#00ff00";
 
 let xp = function (p) { return document.evaluate(p, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue; }
 
-let xhr_sync = function (url) {
-  var xhr = new XMLHttpRequest();
-
-  xhr.open("GET", url, false);
-  xhr.send(null)
-  // need an error condition here
-  return xhr.responseText;
-}
-
-let inject_script = function (source_id) {
-  if (source_id === undefined || source_id === "") { return; }
-  let parts = source_id.match(/([rl])(\d+)/g);
-  if (parts === null) { return; }
-  let nr    = window.parseInt(parts[1]);
-  console.log("script id parts: " + parts);
-
-  var url = "";
-  if ( "r" === parts[0] ) {
-    url = ["https://raw.githubusercontent.com/catb0t/gta-livesplit-extras/master/livesplit.js"][ nr ];
-  } else /* if ( "l" === parts[0] ) */ {
-    url = window.location + "/custom_livesplit.js";
-  }
-
-  let inject_js = xhr_sync(url);
-  console.log("loading cross-site script file: " + inject_js.slice(0, 40).replace("\n", "") + "...");
-  eval(inject_js);
-}
-
 let set_timer_value = function (newtime /*string*/) {
   if (newtime === undefined || newtime === "") { return; }
   let parts = newtime.split("."),
@@ -94,9 +66,9 @@ var checkExist = window.setInterval(function() {
       console.log( T.item(i).setAttribute("filter", "url(#Timer0_filter_shadow_offset)") );
     }
 
-    // Going to change the behaviour of 3/4 buttons below the timer
+    // Going to change the behaviour of buttons below the timer
 
-    // Live script reloader
+/*    // Live script reloader
     let button_topleft = xp("/html/body/div/div/div[1]/div[3]/div/div[2]/div[1]/button[1]");
     button_topleft.insertAdjacentHTML("beforeend", "(Re)load script [r0|l]:");
     button_topleft.insertAdjacentHTML("afterend", `<input style="width: 40px; background-color: black;" class="gtac" id="gtac_scriptload" type="text"></input>`);
@@ -105,7 +77,7 @@ var checkExist = window.setInterval(function() {
     button_topleft.parentNode.replaceChild(button_topleft_copy, button_topleft);
 
     button_topleft_copy.addEventListener("click", function () { inject_script( document.getElementById("gtac_scriptload").value ) } );
-
+*/
     // Setting the value directly
     let button_btmleft = xp("/html/body/div/div/div[1]/div[3]/div/div[2]/div[2]/button[1]");
     button_btmleft.insertAdjacentHTML("beforeend", "Set timer value to:");
@@ -167,4 +139,34 @@ import layout button:
 import splits button:
   /html/body/div/div/div[1]/div[1]/div/button[3]
   this.props.callbacks.importSplits()
+*/
+
+/*
+let xhr_sync = function (url) {
+  var xhr = new XMLHttpRequest();
+
+  xhr.open("GET", url, false);
+  xhr.send(null)
+  // need an error condition here
+  return xhr.responseText;
+}
+
+let inject_script = function (source_id) {
+  if (source_id === undefined || source_id === "") { return; }
+  let parts = source_id.match(/([rl])(\d+)/g);
+  if (parts === null) { return; }
+  let nr    = window.parseInt(parts[1]);
+  console.log("script id parts: " + parts);
+
+  var url = "";
+  if ( "r" === parts[0] ) {
+    url = ["https://raw.githubusercontent.com/catb0t/gta-livesplit-extras/master/livesplit.js"][ nr ];
+  } else { //  if ( "l" === parts[0] )
+    url = window.location + "/custom_livesplit.js";
+  }
+
+  let inject_js = xhr_sync(url);
+  console.log("loading cross-site script file: " + inject_js.slice(0, 40).replace("\n", "") + "...");
+  eval(inject_js);
+}
 */
