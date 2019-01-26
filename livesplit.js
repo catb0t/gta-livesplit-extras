@@ -44,6 +44,7 @@ let set_timer_value = function (newtime /*string*/) {
   let parts = newtime.split("."),
       timer = document.getElementsByClassName("timer-time");
 
+  console.log("parts: " + parts[0] + "!")
   timer.item(0).innerHTML = parts[0];
   timer.item(1).innerHTML = "." + parts[1];
 }
