@@ -96,7 +96,7 @@ var checkExist = window.setInterval(function() {
 
     // Going to change the behaviour of 3/4 buttons below the timer
 
-    // Live script reloader
+/*    // Live script reloader
     let button_topleft = xp("/html/body/div/div/div[1]/div[3]/div/div[2]/div[1]/button[1]");
     button_topleft.insertAdjacentHTML("beforeend", "(Re)load script [r0|l]:");
     button_topleft.insertAdjacentHTML("afterend", `<input style="width: 40px; background-color: black;" class="gtac" id="gtac_scriptload" type="text"></input>`);
@@ -115,7 +115,7 @@ var checkExist = window.setInterval(function() {
     button_btmleft.parentNode.replaceChild(button_btmleft_copy, button_btmleft);
 
     button_btmleft_copy.addEventListener("click", function () { set_timer_value( document.getElementById("gtac_settimer").value ) } );
-
+*/
     /* button not needed: wait N milliseconds to start the timer */
 
     // Done setting up the layout, now operate the website
@@ -149,7 +149,7 @@ var checkExist = window.setInterval(function() {
     //document.body.style.zoom = 5;
     console.log("GTA Font+Key: all done!");
 
-    // window.setTimeout(function () { xp("/html/body/div/div/div[1]/div[3]/div/div[1]").click(); }, 1000 );
+    //window.setTimeout(function () { xp("/html/body/div/div/div[1]/div[3]/div/div[1]").click(); }, 1000 );
   }
 }, 100);
 
